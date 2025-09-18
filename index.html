@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ur">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Animated Portfolio — Saqib Razaque</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <div id="app" class="theme--auto">
+    <!-- Canvas for animated particles / blobs -->
+    <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+    <header class="site-header container">
+      <div class="logo">Code By Saqib</div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#skills">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" class="btn-toggle" aria-label="Toggle theme">
+          <span class="icon">🌗</span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero container" id="home">
+        <div class="hero-left">
+          <h1 class="hero-title">Hey, I'm <span class="name">Saqib Razaque & I'm</span></h1>
+          <h2 class="hero-sub"><span id="typed"></span><span class="cursor">|</span></h2>
+          <p class="hero-desc">Front-end developer — interactive animations, responsive UI.</p>
+          <div class="hero-ctas">
+            <a href="#projects" class="btn primary">View My Work</a>
+            <a href="#contact" class="btn ghost">Get Connected</a>
+            <a href="cv.pdf" download="Hassan-CV.pdf" class="btn ghost">Download CV</a>
+
+          </div>
+          <!-- ✅ Social Icons -->
+          <div class="social-icons">
+            <a href="https://github.com/YourUserName" target="_blank"><i class="fab fa-github"></i></a>
+            <a
+              href="https://www.linkedin.com/in/saqib-razaque-warraich-510ab935b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
+                class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/YourHandle" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/share/1DTDgUAa6x/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/hwm_official4?igsh=aDFxaHg2djlsaHh1" target="_blank"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <!-- animated profile card -->
+          <div class="profile-card" id="profileCard">
+            <div class="card-bg"></div>
+            <img src="profile.jpg" alt="Saqib Razaque" class="profile-img" id="profileImg" />
+            <div class="profile-badge">Front-end • UI Developer</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="projects container">
+        <h3 class="section-title">Projects</h3>
+        <div class="projects-grid">
+          <article class="card project neon-card" data-img="project1.jpg">
+            <div class="card-media"><img src="project1.jpg" alt="Project 1"></div>
+            <div class="card-body">
+              <h4>Project One</h4>
+              <p>Interactive UI with animations (SPA demo).</p>
+              <div class="card-actions">
+                <button class="btn small view-btn">View</button>
+                <a href="#" class="link">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project neon-card" data-img="project2.jpg">
+            <div class="card-media"><img src="project2.jpg" alt="Project 2"></div>
+            <div class="card-body">
+              <h4>Project Two</h4>
+              <p>Responsive landing page with parallax.</p>
+              <div class="card-actions">
+                <button class="btn small view-btn">View</button>
+                <a href="#" class="link">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project neon-card" data-img="project3.jpg">
+            <div class="card-media"><img src="project3.jpg" alt="Project 3"></div>
+            <div class="card-body">
+              <h4>Project Three</h4>
+              <p>Animated dashboard & charts demo.</p>
+              <div class="card-actions">
+                <button class="btn small view-btn">View</button>
+                <a href="#" class="link">Code</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="skills container">
+        <h3 class="section-title">Services I offer's</h3>
+        <div class="skills-grid">
+
+          <!-- Card 1: UI/UX Design -->
+          <div class="skill-card" data-tilt>
+            <!--<img src="uiux-logo.png" alt="UI/UX" class="skill-logo">-->
+            <h4 class="skill-title">UI/UX Design</h4>
+            <p class="skill-desc">Designing clean, user-friendly interfaces and smooth experiences.</p>
+          </div>
+
+          <!-- Card 2: Web Development -->
+          <div class="skill-card" data-tilt>
+            
+            <h4 class="skill-title">Web Development</h4>
+            <p class="skill-desc">Creating responsive, fast-loading websites using HTML, CSS, and JS.</p>
+          </div>
+          
+
+          <!-- Card 3: Backend Development -->
+          <div class="skill-card" data-tilt>
+            
+            <h4 class="skill-title">Backend Development</h4>
+            <p class="skill-desc">Handling servers, APIs, and databases with Node.js & Python.</p>
+          </div>
+
+        </div>
+      </section>
+
+
+
+      <!-- ABOUT -->
+      <section id="about" class="about container">
+        <h3 class="section-title">About</h3>
+        <div class="about-grid">
+          <div>
+            <p>"I am a passionate web developer with a solid foundation in front-end technologies including HTML,
+              CSS, and JavaScript. I have also completed a Python programming course and earned a Level 3 Assistant
+              Certificate, which has strengthened my problem-solving and technical skills. I enjoy building
+              interactive, user-friendly websites and continuously learning new tools to grow as a developer."</p>
+            <ul class="skills">
+              <li>HTML</li>
+              <li>CSS (animations)</li>
+              <li>JavaScript</li>
+              <li>Python</li>
+            </ul>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact container">
+        <h3 class="section-title">Contact</h3>
+        <form id="contactForm" class="contact-form">
+          <label>Name<input type="text" id="name" required></label>
+          <label>Email<input type="email" id="email" required></label>
+          <label>Message<textarea id="message" rows="4" required></textarea></label>
+          <div class="form-row">
+            <button type="submit" class="btn primary">Send</button>
+            <p id="formMsg" class="form-msg" aria-live="polite"></p>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer container">© <span id="year"></span> Saqib Razaque — Built with ♥</footer>
+  </div>
+
+  <!-- Image Modal -->
+  <div id="imgModal" class="img-modal" aria-hidden="true">
+    <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
+    <img id="modalImg" src="" alt="Preview">
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+<script src="script.js" defer></script>
+
+</html>

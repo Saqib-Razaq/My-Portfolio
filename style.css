@@ -1,0 +1,177 @@
+:root{
+  --bg:#f5f7fb;
+  --text:#0b1720;
+  --muted:#4b5563;
+  --card:#ffffff;
+  --accent:#0ea5e9;
+  --glass: rgba(14,165,233,0.08);
+  --radius:14px;
+  --container:1100px;
+  --shadow: 0 10px 30px rgba(2,6,23,0.08);
+}
+.theme--dark{
+  --bg:#071025;
+  --text:#e6eef6;
+  --muted:#9aa4b2;
+  --card:rgba(255,255,255,0.04);
+  --accent:#7dd3fc;
+  --glass: rgba(255,255,255,0.03);
+  --shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:Inter, system-ui, Arial, sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.container{max-width:var(--container);margin:0 auto;padding:2rem}
+
+/* Canvas background covers whole viewport */
+.bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* Header */
+.site-header{position:relative;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+.logo{font-weight:700}
+.nav a{margin-right:1rem;color:var(--muted);text-decoration:none}
+.btn-toggle{background:transparent;border:0;cursor:pointer;font-size:1.1rem}
+
+/* Hero */
+.hero{display:flex;gap:2rem;align-items:center;min-height:70vh;position:relative;z-index:10}
+.hero-left{flex:1}
+.hero-right{width:320px;display:flex;justify-content:center}
+.hero-title{font-size:2.2rem;margin-bottom:.3rem}
+.hero-sub{font-size:1.1rem;color:var(--muted);margin-bottom:1rem}
+.cursor{opacity:1;animation:blink 1s infinite}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+.btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;text-decoration:none}
+.btn.primary{background:var(--accent);color:#022;font-weight:700}
+.btn.ghost{background:var(--accent);color:#022;font-weight:700}
+
+/* ✅ Profile Image Neon Effect */
+.profile-img {
+  width: 160px;
+  height: 200px;
+  border-radius: 0%;
+  object-fit: cover;
+  margin: 13px auto 0;
+  display: block;
+  border: 6px solid var(--accent);
+  box-shadow: 0 0 15px var(--accent), 0 0 40px var(--accent), 0 0 10px var(--accent);
+  z-index: 2;
+}
+
+/* Profile Card (floating) */
+.profile-card{position:relative;width:240px;height:300px;border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,0.03),transparent);box-shadow:var(--shadow);overflow:hidden;transform-style:preserve-3d;transition:transform .25s ease, box-shadow .25s ease}
+.card-bg{position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.05));z-index:0}
+.profile-badge{position:absolute;left:50%;transform:translateX(-50%);bottom:5px;background:var(--glass);padding:.4rem .8rem;border-radius:999px;color:var(--muted);font-weight:600;z-index:3}
+
+/* projects grid */
+.section-title{font-size:1.4rem;margin-bottom:1rem}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.card{background:var(--card);border-radius:14px;padding:0;overflow:hidden;box-shadow:var(--shadow);transition:transform .25s ease, box-shadow .25s ease}
+.card:hover{transform:translateY(-8px)}
+
+/* ✅ Neon Project Cards */
+.neon-card {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 12px var(--accent), 0 0 25px var(--accent), 0 0 10px var(--accent);
+}
+
+.card .card-media img{width:100%;height:160px;object-fit:cover;display:block}
+.card-body{padding:1rem}
+.card-actions{display:flex;align-items:center;justify-content:space-between;margin-top:0.6rem}
+.btn.small{padding:.4rem .6rem;border-radius:8px}
+.link{color:var(--accent);text-decoration:none;font-weight:600}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 320px;gap:1rem;align-items:center}
+.skills{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
+.skills li{list-style:none;background:var(--glass);padding:.4rem .6rem;border-radius:999px;color:var(--muted)}
+
+/* Contact */
+.contact-form label{display:block;margin-bottom:.6rem}
+.contact-form input,.contact-form textarea{width:100%;padding:.6rem;border-radius:10px;border: 5px solid rgba(137, 228, 253, 0.646);background:transparent;color:var(--text)}
+.form-row{display:flex;align-items:center;gap:1rem;margin-top:.6rem}
+.form-msg{color:var(--accent)}
+
+/* Footer */
+.site-footer{padding:2rem 0;color:var(--muted);text-align:center;margin-top:2rem}
+
+/* Image Modal */
+.img-modal{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity .18s;}
+.img-modal.open{opacity:1;pointer-events:auto}
+.img-modal img{max-width:90%;max-height:80%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+.modal-close{position:fixed;right:20px;top:20px;background:transparent;border:0;color:#fff;font-size:1.6rem}
+
+/* ✅ Social Icons */
+.social-icons {
+  margin: 15px 0;
+}
+.social-icons a {
+  margin: 0 8px;
+  font-size: 1.5rem;
+  color: var(--text);
+  transition: color 0.3s, transform 0.3s;
+}
+.social-icons a:hover {
+  color: var(--accent);
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero{flex-direction:column;text-align:center}
+  .hero-right{width:100%}
+  .about-grid{grid-template-columns:1fr}
+}
+/* Hero Title (H1) */
+.hero-title {
+  color: #00fae1 !important;   /* neon pink */
+}
+
+/* Hero Sub animated text */
+.hero-sub #typed {
+  color: #00e5ff8a !important;   /* neon aqua */
+}
+
+/* Cursor ke liye (optional glow) */
+.hero-sub .cursor {
+  color: #00e5ff8a !important;
+}
+.skills-grid {
+  gap: 32px;
+  display: flex;
+  flex-direction: row;
+}
+
+.skill-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30px 50px;
+  text-align: center;
+  box-shadow: 0 0 10px black;
+  transition: transform 0.3s ease;
+  /* transform-style: preserve-3d; */
+  cursor: pointer;
+}
+
+.skill-card:hover {
+  box-shadow: 0 0 12px var(--accent), 0 0 25px var(--accent), 0 0 10px var(--accent);
+
+}
+
+.skill-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.skill-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.skill-desc {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
