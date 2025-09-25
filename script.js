@@ -1,39 +1,42 @@
-/* ---------- Mobile nav toggle (index & resume) ---------- */
-const menuBtn = document.getElementById('menuBtn');
-const nav = document.getElementById('mainNav');
-if (menuBtn && nav) {
-  menuBtn.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const drawer = document.getElementById('drawer');
+  const hamburger = document.querySelector('.hamburger');
+  const closeBtn = document.querySelector('.closebtn');
+  const navLinks = document.querySelectorAll('.drawer a');
+  const darkModeToggle = document.getElementById('darkModeToggle');
 
-/* ---------- Smooth scroll for in-page links (index.html) ---------- */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function (e) {
-    // If link points to an ID present on current page, smooth-scroll.
-    const targetId = this.getAttribute('href');
-    if (targetId && targetId.startsWith('#')) {
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+  // Drawer open
+  hamburger.addEventListener('click', () => {
+    drawer.style.width = '150px'; // drawer open hoga
+  });
+
+  // Drawer close
+  closeBtn.addEventListener('click', () => {
+    drawer.style.width = '0'; // drawer close hoga
+  });
+
+  // Drawer band karna jab link click ho
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.style.width = '0';
+    });
+  });
+
+  // Dark/Light Mode toggle
+  darkModeToggle.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+      localStorage.setItem('theme', 'dark');
+    } else {
+      localStorage.setItem('theme', 'light');
     }
   });
+
+  // Check for saved theme preference on page load
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    darkModeToggle.checked = true;
+  }
 });
 
-/* ---------- Theme toggle (both pages) ---------- */
-function applyTheme(isDark) {
-  if (isDark) document.documentElement.classList.add('dark'), document.body.classList.add('dark');
-  else document.documentElement.classList.remove('dark'), document.body.classList.remove('dark');
-}
-const themeToggle = document.getElementById('themeToggle') || document.getElementById('themeToggleResume');
-if (themeToggle) {
-  // restore saved preference
-  const pref = localStorage.getItem('pref-dark');
-  applyTheme(pref === '1');
-  themeToggle.addEventListener('click', () => {
-    const darkNow = document.body.classList.toggle('dark');
-    localStorage.setItem('pref-dark', darkNow ? '1' : '0');
-  });
-          }
